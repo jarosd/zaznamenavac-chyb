@@ -1,0 +1,23 @@
+<header>
+    <menu th:fragment="menu">
+        <a th:href="@{/}" class="nadpisLink"><h1>Bug tracker</h1></a>
+
+        <ul th:if="${session.nick == null}">
+            <li><a th:href="@{/prihlasenie}">Prihlásenie</a></li>
+            <li><a th:href="@{/registracia}">Registrácia</a></li>
+        </ul>
+
+        <ul th:if="${session.nick != null}">
+            <li><a th:href="@{/zobrazChyby}">Aktuálne chyby</a></li>
+            <li><a th:href="@{/pridajChybu}">Pridať novú chybu</a></li>
+            <li><a th:href="@{/zmenyPortal}">Zmeny v chybách</a></li>
+            <li><a th:href="@{/zmenaHesla}">Nastavenia</a></li>
+            <li><a th:href="@{/odhlasenie}">Odhlásiť sa</a></li>
+        </ul>
+
+        <div th:if="${session.nick != null}" id="infoPouzivatel">
+            <span th:text="${session.nick}"></span>
+        </div>
+    </menu>
+
+</header>

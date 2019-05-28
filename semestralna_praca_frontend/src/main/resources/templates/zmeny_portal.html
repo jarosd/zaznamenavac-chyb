@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+
+    <script th:src="@{/js/ajax.js}"></script>
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Zmeny v chybách</h2>
+
+    <div class="mainformfilter">
+        <input type="text" id="pouzivatel" name="pouzivatel" placeholder="Prezývka používateľa" th:value="${pouzivatel != null ? pouzivatel : ''}">
+        <input type="button" value="Aktualizuj filter" class="btn btn-primary" id="aktualizujFilter">
+    </div>
+
+    <div th:if="${dataZmeny != null && pocetZaznamov > 0}">
+        <table>
+            <tr>
+                <th>ID chyby</th>
+                <th>Autor</th>
+                <th>Typ zmeny</th>
+                <th>Aktualizovaný objekt</th>
+                <th>Čas vykonania</th>
+            </tr>
+            <th:block th:each="polozka : ${dataZmeny}">
+                <tr>
+                    <td th:text="${polozka.bugId != 0 ? polozka.bugId : ''}"></td>
+                    <td th:text="${polozka.pouzivatel}"></td>
+                    <td><span class="typOperacie" th:text="${polozka.typZmeny}"></span></td>
+                    <td th:text="${polozka.typAkcie}"></td>
+                    <td th:text="${polozka.casVykonania}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+
+    <div class="panelStranok" th:if="${dataZmeny != null && pocetZaznamov > 0}">
+        <th:block th:each="i : ${#numbers.sequence(1, pocetStran)}">
+            <a th:if="${stranka == i}" th:href="@{'/zmenyPortal/' + ${i}}"><span class="cisloStranky vybrataStranka" th:text="${i}"></span></a>
+            <a th:if="${stranka != i}" th:href="@{'/zmenyPortal/' + ${i}}"><span class="cisloStranky" th:text="${i}"></span></a>
+        </th:block>
+    </div>
+
+    <div class="celkovyPocet"><strong>Celkový počet záznamov: </strong><span th:text="${pocetZaznamov}"></span></div>
+
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

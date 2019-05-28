@@ -1,0 +1,13 @@
+package fri.jarosd.vpa.prihlasovanie;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PrihlasovanieApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(PrihlasovanieApplication.class, args);
+    }
+
+}

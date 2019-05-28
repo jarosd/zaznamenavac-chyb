@@ -1,0 +1,11 @@
+FROM postgres:latest
+MAINTAINER jarosd
+
+# https://stackoverflow.com/questions/47457634/dockerized-postgresql-with-volumes
+VOLUME /var/lib/postgresql/data
+
+# https://stackoverflow.com/questions/26598738/how-to-create-user-database-in-script-for-docker-postgres
+COPY files_docker/vytvor_databazu.sql /docker-entrypoint-initdb.d/vytvor_databazu.sql
+
+EXPOSE 5432
+# služba je už v balíčku spustená

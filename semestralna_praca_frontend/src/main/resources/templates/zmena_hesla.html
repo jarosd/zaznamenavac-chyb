@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Zmena hesla</h2>
+
+    <div class="mainform">
+        <form method="post" action="#" th:action="@{/vykonajZmenuHesla}">
+            <input type="password" placeholder="Staré heslo" name="stareHeslo"><br>
+            <input type="password" placeholder="Nové heslo" name="noveHeslo"><br>
+            <input type="password" placeholder="Nové heslo na kontrolu" name="noveHesloZnova"><br>
+
+            <input type="submit" value="Zmeniť heslo" class="btn btn-success">
+        </form>
+    </div>
+
+    <h2>Zmena kontaktného emailu</h2>
+
+    <strong>Meno používateľa: </strong><span th:text="${cele_meno}"></span><br>
+    <strong>Kontaktný email: </strong><span th:text="${email}"></span><br>
+
+    <div class="mainform">
+        <form method="post" action="#" th:action="@{/vykonajZmenuEmailu}">
+            <input type="email" placeholder="Váš nový email" name="novyEmail">
+            <input type="submit" value="Zmeniť email" class="btn btn-success">
+        </form>
+    </div>
+
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

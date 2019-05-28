@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PouzivatelMapper">
+    <resultMap id="PouzivatelPriradenieInfo" type="fri.jarosd.vpa.prihlasovanie.datoveEntity.Pouzivatel">
+        <result property="ID" column="id_pouzivatela" />
+        <result property="meno" column="meno" />
+        <result property="priezvisko" column="priezvisko" />
+        <result property="nick" column="nick" />
+        <result property="email" column="email" />
+        <result property="typPouzivatela" column="typ" />
+    </resultMap>
+
+    <resultMap id="PouzivatelPriradenie" type="fri.jarosd.vpa.prihlasovanie.datoveEntity.Pouzivatel">
+        <result property="ID" column="id_pouzivatela" />
+        <result property="heslo" column="heslo" />
+        <result property="typPouzivatela" column="typ" />
+    </resultMap>
+
+    <select id="getInformaciePouzivatela" resultMap="PouzivatelPriradenieInfo">
+        SELECT meno, priezvisko, nick, email, typ_pouzivatela.typ AS typ
+        FROM pouzivatelia
+        JOIN typ_pouzivatela ON typ_pouzivatela.id_typu = pouzivatelia.typ_pouzivatela
+        WHERE nick = #{nick};
+    </select>
+
+    <select id="getHeslo" resultMap="PouzivatelPriradenie">
+        SELECT id_pouzivatela, heslo, typ_pouzivatela.typ AS typ
+        FROM pouzivatelia
+        JOIN typ_pouzivatela ON typ_pouzivatela.id_typu = pouzivatelia.typ_pouzivatela
+        WHERE nick = #{nick};
+    </select>
+
+    <select id="skontrolujNick" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS pocet
+        FROM pouzivatelia
+        WHERE nick = #{nick};
+    </select>
+
+    <select id="overApi" resultType="java.lang.Integer">
+      SELECT COUNT(*) AS jeok
+      FROM autorizacne_kluce
+      WHERE kluc = #{kluc} AND blokovany = false;
+    </select>
+
+    <insert id="registrujPouzivatela" parameterType="fri.jarosd.vpa.prihlasovanie.datoveEntity.Pouzivatel" statementType="PREPARED">
+        INSERT INTO pouzivatelia(meno, priezvisko, nick, heslo, email)
+        VALUES(#{meno}, #{priezvisko}, #{nick}, #{heslo}, #{email});
+    </insert>
+
+    <update id="aktualizujEmail" parameterType="fri.jarosd.vpa.prihlasovanie.datoveEntity.PouzivatelZmenEmail" statementType="PREPARED">
+      UPDATE pouzivatelia SET email = #{email} WHERE nick = #{nick};
+    </update>
+
+    <update id="aktualizujHeslo" parameterType="fri.jarosd.vpa.prihlasovanie.datoveEntity.PouzivatelZmenHeslo" statementType="PREPARED">
+        UPDATE pouzivatelia SET heslo = #{noveHeslo} WHERE nick = #{nick};
+    </update>
+
+</mapper>

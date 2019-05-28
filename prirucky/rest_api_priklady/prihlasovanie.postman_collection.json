@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "508c182c-80ca-4e88-a40d-f2f1507535ea",
+		"name": "prihlasovanie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "informácie o používateľovi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/dajInfoPouzivatel/test?apikey=restapi",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"dajInfoPouzivatel",
+						"test"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "restapi"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "neexistujúci používateľ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/dajInfoPouzivatel/fsd?apikey=restapi",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"dajInfoPouzivatel",
+								"fsd"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "restapi"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:40:25 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Používateľ pravdepodobne neexistuje.\"\n    },\n    \"status\": \"CHYBA\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "skontroluj nick",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/skontrolujNick/jarosd",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"skontrolujNick",
+						"jarosd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "nick obsadený",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/skontrolujNick/jarosd",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"skontrolujNick",
+								"jarosd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:13:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Nick je obsadený.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "prihlásenie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nick\": \"tester\",\r\n        \"heslo\": \"tester\",\r\n        \"apikey\": \"restapi\"\r\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/prihlas",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"prihlas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "neúspešné prihlásenie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nick\": \"tester\",\r\n        \"heslo\": \"tester\",\r\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/prihlas",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"prihlas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "145"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:06:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Skontrolujte si API kľúč. Zadaný kľúč nie je registrovaný v systéme.\"\n    },\n    \"status\": \"CHYBA\",\n    \"httpKod\": 401,\n    \"apiVersion\": 1\n}"
+				},
+				{
+					"name": "úspešné prihlásenie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nick\": \"tester\",\r\n        \"heslo\": \"tester\",\r\n        \"apikey\": \"restapi\"\r\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/prihlas",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"prihlas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:11:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"sprava\": \"Prihlásenie prebehlo v poriadku.\",\n        \"ID\": \"42\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "registrácia",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"apikey\": \"restapi\",\n\t\"meno\": \"Ján\",\n\t\"priezvisko\": \"Jaroš\",\n\t\"nick\": \"jj\",\n\t\"heslo\": \"daj tam hash\",\n\t\"email\": \"test@test.tt\"\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/registruj",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"registruj"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registrácia - pozor na hash",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"apikey\": \"restapi\",\n\t\"meno\": \"Ján\",\n\t\"priezvisko\": \"Jaroš\",\n\t\"nick\": \"jj\",\n\t\"heslo\": \"daj tam hash\",\n\t\"email\": \"test@test.tt\"\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/registruj",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"registruj"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:25:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Registrácia prebehla v poriadku.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "zmena emailu",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nick\": \"jarosd\",\r\n        \"email\": \"email@email.sk\",\r\n        \"apikey\": \"restapi\"\r\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/zmenEmail",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"zmenEmail"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "email bol zmenený",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nick\": \"jarosd\",\r\n        \"email\": \"jaros.daniel@gmail.com\",\r\n        \"apiKey\": \"restapi\"\r\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/zmenEmail",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"zmenEmail"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:14:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Zmena kontaktného emailu prebehla v poriadku.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "zmena hesla",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nick\": \"jarosd\",\r\n        \"stareHeslo\": \"heslo\",\r\n        \"noveHeslo\": \"jarosd\",\r\n        \"apikey\": \"restapi\"\r\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10000/api/v1/zmenHeslo",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10000",
+					"path": [
+						"api",
+						"v1",
+						"zmenHeslo"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "neúspešná zmena hesla",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nick\": \"jarosd\",\r\n        \"stareHeslo\": \"heslo\",\r\n        \"noveHeslo\": \"jarosd\",\r\n        \"apiKey\": \"restapi\"\r\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10000/api/v1/zmenHeslo",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10000",
+							"path": [
+								"api",
+								"v1",
+								"zmenHeslo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:15:51 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Zmena hesla konta nebola úspešná. Skontrolujte si zadané údaje.\"\n    },\n    \"status\": \"CHYBA\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		}
+	]
+}

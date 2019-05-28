@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommentMapper">
+
+    <resultMap id="KomentarPriradenie" type="fri.jarosd.vpa.bugs.datoveEntity.Komentar">
+        <result property="idKomentara" column="ID_komentara" />
+        <result property="idChyby" column="ID_chyby" />
+        <result property="autor" column="autor" />
+        <result property="textKomentara" column="text_komentara" />
+        <result property="casVlozenia" column="cas_vlozenia" />
+    </resultMap>
+
+    <select id="getKomentare" resultMap="KomentarPriradenie" parameterType="java.lang.Integer">
+        SELECT ID_komentara, ID_chyby, autor, text_komentara, cas_vlozenia
+        FROM komentare
+        WHERE ID_chyby = #{id_chyby};
+    </select>
+
+    <select id="getKomentar" resultMap="KomentarPriradenie" parameterType="java.lang.Integer">
+        SELECT ID_komentara, ID_chyby, autor, text_komentara, cas_vlozenia
+        FROM komentare
+        WHERE ID_komentara = #{id_komentara};
+    </select>
+
+    <insert id="pridajKomentar" parameterType="fri.jarosd.vpa.bugs.datoveEntity.Komentar" statementType="PREPARED">
+        INSERT INTO komentare(ID_chyby, autor, text_komentara)
+        VALUES(#{idChyby}, #{autor}, #{textKomentara});
+    </insert>
+
+    <update id="aktualizujKomentar" parameterType="fri.jarosd.vpa.bugs.datoveEntity.Komentar" statementType="PREPARED">
+        UPDATE komentare
+        SET text_komentara = #{textKomentara}
+        WHERE ID_komentara = #{idKomentara};
+    </update>
+
+    <delete id="vymazKomentar" parameterType="java.lang.Integer" statementType="PREPARED">
+        DELETE
+        FROM komentare
+        WHERE ID_komentara = #{idKomentara};
+    </delete>
+
+</mapper>

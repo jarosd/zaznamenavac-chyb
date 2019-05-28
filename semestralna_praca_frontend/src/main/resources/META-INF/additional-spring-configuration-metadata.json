@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "prihlasovanie.apiKey",
+      "type": "java.lang.String",
+      "description": "API kľúč pre prihlasovanie."
+    }
+  ] }

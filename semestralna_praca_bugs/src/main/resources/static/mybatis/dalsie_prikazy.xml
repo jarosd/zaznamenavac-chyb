@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DalsiePrikazyMapper">
+
+    <resultMap id="zmenyPortal" type="fri.jarosd.vpa.bugs.datoveEntity.ZmenyPortal">
+        <result property="bugId" column="ID_bug" />
+        <result property="pouzivatel" column="pouzivatel" />
+        <result property="typZmeny" column="typ_zmeny" javaType="fri.jarosd.vpa.bugs.datoveEntity.TypZmeny" />
+        <result property="typAkcie" column="typ_akcie" />
+        <result property="casVykonania" column="cas_vykonania" />
+    </resultMap>
+
+    <resultMap id="zoznamDolezitosti" type="fri.jarosd.vpa.bugs.datoveEntity.Dolezitost">
+        <result property="dolezitost" column="level" />
+        <result property="popis" column="sk_popis" />
+        <result property="farba" column="farba" />
+    </resultMap>
+
+    <select id="getZmeny" resultMap="zmenyPortal" parameterType="map">
+        SELECT ID_bug, pouzivatel, typ_zmeny, typ_akcie, cas_vykonania
+        FROM zaznamy_zmien
+        <if test="pouzivatel != null">
+            WHERE pouzivatel = #{pouzivatel}
+        </if>
+        ORDER BY cas_vykonania DESC
+        <if test="preskoc != null and zobraz != null">
+            LIMIT #{preskoc}, #{zobraz}
+        </if>
+    </select>
+
+    <select id="getZmenyPocet" resultType="java.lang.Integer" parameterType="map">
+        SELECT COUNT(*) AS pocet
+        FROM zaznamy_zmien
+        <if test="pouzivatel != null">
+            WHERE pouzivatel = #{pouzivatel}
+        </if>
+        ORDER BY cas_vykonania DESC;
+    </select>
+
+    <select id="getDolezitosti" resultMap="zoznamDolezitosti">
+        SELECT level, sk_popis, farba
+        FROM dolezitost;
+    </select>
+
+</mapper>

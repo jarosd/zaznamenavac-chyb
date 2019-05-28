@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Hlavná stránka</h2>
+
+    <p><img th:src="@{/images/bug.png}" alt="Bug" id="bughlavna">Tento program je určený na zaznamenávanie chýb v
+        rôznych oblastiach, ako softvérových, tak aj nesoftvérových. Pomocou tejto stránky je možné zaznamenávať tieto chyby spolu s komentármi a obrázkami. Chyby sú kategorizované
+        podľa stupňa dôležitosti. Pre získanie prístupu k systému je potrebné sa najprv <a th:href="@{/registracia}">registrovať</a>.
+    </p>
+
+    <p>Viac informácií o tejto aplikácií je možné nájsť v používateľskej a systémovej príručke, ktorá je zverejnená spolu so
+        zdrojovým kódom tejto aplikácie na Github.</p>
+</div>
+
+</body>
+</html>

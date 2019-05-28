@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Editácia existujúcej chyby</h2>
+
+    <div class="mainform">
+        <form method="post" th:action="@{/vykonajEditujChybu}">
+            <input type="hidden" name="chybaID" th:value="${modifikacie.chybaID}">
+            Názov chyby: <input type="text" name="nazovChyby" th:value="${modifikacie.nazovChyby != null} ? ${modifikacie.nazovChyby} : ''"><br>
+            <textarea name="popisChyby" placeholder="Tu v skratke popíšte chybu..." rows="10" cols="70" th:text="${modifikacie.popisChyby != null} ? ${modifikacie.popisChyby} : ''"></textarea><br>
+            Umiestnenie: <input type="text" name="umiestnenie" th:value="${modifikacie.umiestnenie != null} ? ${modifikacie.umiestnenie} : ''"><br>
+
+            Dôležitosť:
+            <select name="dolezitost">
+                <option th:each="dolezitost : ${zoznamDolezitosti}" th:value="${dolezitost.dolezitost}" th:text="${dolezitost.popis}"></option>
+            </select><br>
+
+            <input type="submit" value="Modifikovať chybu" class="btn btn-success">
+        </form>
+    </div>
+
+    <h2>Obrázky</h2>
+
+    <div th:if="${ziskaneDataObrazok != null && ziskaneDataObrazok.size() > 0}" class="prilozeneObrazky">
+        <th:block th:each="obrazok : ${ziskaneDataObrazok}">
+            <figure>
+                <a th:href="${obrazok.link}" target="_blank"><img th:src="${obrazok.link}" th:alt="${obrazok.nazovObrazka}" class="obrazokChyba"></a>
+                <figcaption th:text="${obrazok.nazovObrazka + ' (vytvoril ' + obrazok.autor + ')'}"></figcaption>
+
+                <form method="post" th:action="@{/odstranObrazok}" class="formularVymazObrazok">
+                    <input type="hidden" name="obrazokId" th:value="${obrazok.obrazokId}">
+                    <input type="hidden" name="chybaId" th:value="${modifikacie.chybaID}">
+
+                    <input type="submit" value="Odstrániť obrázok" class="btn btn-danger">
+                </form>
+            </figure>
+        </th:block>
+    </div>
+
+    <div th:if="${ziskaneDataObrazok == null || ziskaneDataObrazok.size() == 0}">
+        <p>Nenašli sa žiadne obrázky.</p>
+    </div>
+
+    <div id="obrazokPridajFormular">
+        <h3>Pridanie nového obrázka</h3>
+
+        <div class="mainform">
+            <form method="post" th:action="@{/pridajObrazok}" enctype="multipart/form-data">
+                <input type="hidden" name="chybaId" th:value="${modifikacie.chybaID}">
+                <input type="file" name="obrazok" accept="image/*"><br>
+                <input type="text" name="nazovObrazka" placeholder="Popis obrázka" required="required"><br>
+
+                <input type="submit" value="Pridať obrázok" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

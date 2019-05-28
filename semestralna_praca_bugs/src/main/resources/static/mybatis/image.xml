@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ImageMapper">
+
+    <resultMap id="ObrazokInformacie" type="fri.jarosd.vpa.bugs.datoveEntity.Obrazok">
+        <result property="obrazokId" column="ID_obrazka" />
+        <result property="chybaId" column="ID_chyby" />
+        <result property="nazovObrazka" column="nazov_obrazka" />
+        <result property="autor" column="autor" />
+        <result property="cestaObrazok" column="cesta_obrazok" />
+    </resultMap>
+
+    <select id="obrazkyChyby" resultMap="ObrazokInformacie" parameterType="java.lang.Integer">
+        SELECT ID_obrazka, ID_chyby, nazov_obrazka, autor, cesta_obrazok
+        FROM obrazky
+        WHERE ID_chyby = #{id_chyby};
+    </select>
+
+    <select id="konkretnyObrazok" resultMap="ObrazokInformacie" parameterType="java.lang.Integer">
+        SELECT ID_obrazka, ID_chyby, nazov_obrazka, autor, cesta_obrazok
+        FROM obrazky
+        WHERE ID_obrazka = #{id_obrazka};
+    </select>
+
+    <insert id="pridajObrazok" parameterType="fri.jarosd.vpa.bugs.datoveEntity.Obrazok">
+        INSERT INTO obrazky(ID_chyby, nazov_obrazka, autor, cesta_obrazok)
+        VALUES(#{chybaId}, #{nazovObrazka}, #{autor}, #{cestaObrazok});
+    </insert>
+
+    <delete id="odstranObrazok" parameterType="java.lang.Integer">
+        DELETE
+        FROM obrazky
+        WHERE ID_obrazka = #{id_obrazka};
+    </delete>
+
+</mapper>

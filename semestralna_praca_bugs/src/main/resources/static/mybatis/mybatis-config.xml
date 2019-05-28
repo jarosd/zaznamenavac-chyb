@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- záleží na poradí jednotlivých prvkov ! -->
+    <!-- https://stackoverflow.com/questions/37596144/the-reference-to-entity-uselegacydatetimecode-must-end-with-the-delimiter -->
+    <typeHandlers>
+        <typeHandler handler="fri.jarosd.vpa.bugs.datoveEntity.TypZmenyTypeHandler"/>
+    </typeHandlers>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://40.114.227.18:10004/vpa_jarosd_bugs?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Bratislava"/>
+                <property name="username" value="docker"/>
+                <property name="password" value="docker"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="/static/mybatis/bug.xml"/>
+        <mapper resource="/static/mybatis/comment.xml"/>
+        <mapper resource="/static/mybatis/image.xml"/>
+        <mapper resource="/static/mybatis/dalsie_prikazy.xml"/>
+    </mappers>
+
+</configuration>

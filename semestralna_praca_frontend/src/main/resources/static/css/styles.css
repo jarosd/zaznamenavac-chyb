@@ -1,0 +1,221 @@
+@font-face {
+    font-family: Roboto;
+    src: url("/fonts/Roboto-Regular.ttf");
+}
+
+* {
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0px;
+}
+
+html {
+    font-size: 12pt;
+}
+
+body {
+    background: url("/images/background.png") fixed center;
+    background-size: cover;
+}
+
+p {
+    margin: 10px 0px;
+}
+
+header menu h1 {
+    display: inline;
+    padding: 10px;
+    margin-right: 30px;
+    color: #FFFFFF;
+    font-size: 1.25em;
+}
+
+header menu {
+    background-color: #333333;
+    position: relative;
+    font-size: 1em;
+}
+
+header menu ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+header menu ul li {
+    display: inline-block;
+}
+
+header menu ul li a {
+    display: inline-block;
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 3px;
+    text-decoration: none;
+}
+
+#teloStranky {
+    margin: 8px;
+}
+
+.nadpisLink {
+    text-decoration: none;
+}
+
+#infoPouzivatel {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+    margin: 3px;
+    color: #BABAA3;
+}
+
+#statusMini {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.mainform {
+    border: 1px dotted #000000;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mainformfilter {
+    border: 1px dotted #000000;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.mainform input, .mainformfilter input {
+    padding: 3px;
+    font-size: 1em;
+    margin: 5px 0px;
+}
+
+.mainform input[type="submit"], .mainform input[type="button"], .mainformfilter input[type="submit"], .mainformfilter input[type="button"] {
+    margin-top: 10px;
+    font-size: 0.9em;
+    padding: 8px;
+}
+
+#bughlavna {
+    float: left;
+    width: 96px;
+    height: auto;
+    padding: 10px 10px 10px 0px;
+}
+
+.dolezitost, .typOperacie {
+    padding: 3px;
+    border: 1px solid #000000;
+    margin: 3px;
+    border-radius: 3px 3px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+
+.typOperacie {
+    background-color: #AFB1B3;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+th {
+    background-color: #FE8642;
+    font-weight: bold;
+}
+
+tr, th, td {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+th, td {
+    padding: 3px;
+}
+
+a.btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.formInline {
+    display: inline;
+}
+
+.hornyMargin {
+    margin-top: 10px;
+}
+
+.vybrataStranka {
+    background-color: #FE8642;
+}
+
+.panelStranok a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.panelStranok .cisloStranky {
+    display: inline-block;
+    padding: 8px;
+    margin: 0px 2px;
+    border: 1px dotted #000000;
+}
+
+.celkovyPocet, .panelStranok {
+    margin: 10px 0px;
+}
+
+.prilozeneObrazky figure {
+    display: block;
+    float: left;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.prilozeneObrazky figure img {
+    width: 256px;
+    height: auto;
+}
+
+.prilozeneObrazky figcaption {
+    font-weight: bold;
+    text-align: center;
+}
+
+.komentare, #obrazokPridajFormular {
+    clear: both;
+    margin: 10px 0px;
+    padding: 10px 0px;
+}
+
+.komentarJeden {
+    margin: 3px 3px 3px 10px;
+    padding: 10px;
+    border: 1px dashed #000000;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#komentarModifikacia, #komentarPridaj, .formularVymazObrazok {
+    margin: 10px 0px;
+}
+
+#komentarModifikacia input[type="submit"] {
+    margin-top: 10px;
+}

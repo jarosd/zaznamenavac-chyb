@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "file.uploadDir",
+      "type": "java.lang.String",
+      "description": "Cesta ku adresáru, kde budú ukladané obrázky (docker volume cesta)."
+    }
+  ] }

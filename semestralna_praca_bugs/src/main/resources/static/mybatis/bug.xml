@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BugMapper">
+    <resultMap id="BugPriradenie" type="fri.jarosd.vpa.bugs.datoveEntity.Bug">
+        <result property="chybaID" column="ID_chyby" />
+        <result property="nazovChyby" column="nazov_chyby" />
+        <result property="popisChyby" column="popis_chyby" />
+        <result property="autor" column="autor" />
+        <result property="datumVytvorenia" column="datum_vytvorenia" />
+        <result property="datumUkoncenia" column="datum_ukoncenia" />
+        <result property="umiestnenie" column="umiestnenie" />
+        <association property="dolezitostObjekt" resultMap="dolezitostiJedna" />
+    </resultMap>
+
+    <resultMap id="dolezitostiJedna" type="fri.jarosd.vpa.bugs.datoveEntity.Dolezitost">
+        <result property="dolezitost" column="dolezitost_level" />
+        <result property="popis" column="sk_popis" />
+        <result property="farba" column="farba" />
+    </resultMap>
+
+    <select id="getBugs" resultMap="BugPriradenie" parameterType="map">
+        SELECT ID_chyby, nazov_chyby, popis_chyby, autor, datum_vytvorenia, datum_ukoncenia, chyby.dolezitost AS dolezitost_level, dolezitost.sk_popis AS sk_popis, dolezitost.farba AS farba, umiestnenie
+        FROM chyby
+        JOIN dolezitost ON dolezitost.level = chyby.dolezitost
+        <choose>
+            <when test="vyriesene == true">
+                WHERE datum_ukoncenia IS NOT NULL;
+            </when>
+            <when test="vyriesene == false">
+                WHERE datum_ukoncenia IS NULL;
+            </when>
+            <otherwise>
+                ;
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getOneBug" resultMap="BugPriradenie" parameterType="map">
+        SELECT ID_chyby, nazov_chyby, popis_chyby, autor, datum_vytvorenia, datum_ukoncenia, chyby.dolezitost AS dolezitost_level, dolezitost.sk_popis AS sk_popis, dolezitost.farba AS farba, umiestnenie
+        FROM chyby
+        JOIN dolezitost ON dolezitost.level = chyby.dolezitost
+        WHERE ID_chyby = #{chybaID};
+    </select>
+
+    <select id="getAuthorBugs" resultMap="BugPriradenie">
+        SELECT ID_chyby, nazov_chyby, popis_chyby, autor, datum_vytvorenia, datum_ukoncenia, chyby.dolezitost AS dolezitost_level, dolezitost.sk_popis AS sk_popis, dolezitost.farba AS farba, umiestnenie
+        FROM chyby
+        JOIN dolezitost ON dolezitost.level = chyby.dolezitost
+        WHERE autor = #{autor}
+        <choose>
+            <when test="vyriesene == true">
+                AND datum_ukoncenia IS NOT NULL;
+            </when>
+            <when test="vyriesene == false">
+                AND datum_ukoncenia IS NULL;
+            </when>
+            <otherwise>
+                ;
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getSeverityBugs" resultMap="BugPriradenie">
+        SELECT ID_chyby, nazov_chyby, popis_chyby, autor, datum_vytvorenia, datum_ukoncenia, chyby.dolezitost AS dolezitost_level, dolezitost.sk_popis AS sk_popis, dolezitost.farba AS farba, umiestnenie
+        FROM chyby
+        JOIN dolezitost ON dolezitost.level = chyby.dolezitost
+        WHERE dolezitost = #{dolezitost}
+        <choose>
+            <when test="vyriesene == true">
+                AND datum_ukoncenia IS NOT NULL;
+            </when>
+            <when test="vyriesene == false">
+                AND datum_ukoncenia IS NULL;
+            </when>
+            <otherwise>
+                ;
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="pridajBug" parameterType="fri.jarosd.vpa.bugs.datoveEntity.Bug" statementType="PREPARED">
+        INSERT INTO chyby(nazov_chyby, popis_chyby, autor, dolezitost, umiestnenie)
+        VALUES(#{nazovChyby}, #{popisChyby}, #{autor}, #{dolezitostObjekt.dolezitost}, #{umiestnenie});
+    </insert>
+
+    <update id="vyriesenyBug" parameterType="java.lang.Integer" statementType="PREPARED">
+        UPDATE chyby
+        SET datum_ukoncenia = NOW()
+        WHERE ID_chyby = #{id_chyby};
+    </update>
+
+    <update id="nevyriesenyBug" parameterType="java.lang.Integer" statementType="PREPARED">
+        UPDATE chyby
+        SET datum_ukoncenia = NULL
+        WHERE ID_chyby = #{id_chyby};
+    </update>
+
+    <update id="modifikujBug" parameterType="fri.jarosd.vpa.bugs.datoveEntity.Bug" statementType="PREPARED">
+        UPDATE chyby
+        SET nazov_chyby = #{nazovChyby}, popis_chyby = #{popisChyby}, autor = #{autor}, dolezitost = #{dolezitostObjekt.dolezitost}, umiestnenie = #{umiestnenie}
+        WHERE ID_chyby = #{chybaID};
+    </update>
+
+    <delete id="vymazBug" parameterType="java.lang.Integer" statementType="PREPARED">
+        DELETE
+        FROM chyby
+        WHERE ID_chyby = #{id_chyby};
+    </delete>
+
+</mapper>

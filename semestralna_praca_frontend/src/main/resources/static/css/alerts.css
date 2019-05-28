@@ -1,0 +1,43 @@
+.alert {
+    border-left: 8px solid #000000;
+    z-index: 2000;
+    padding: 10px;
+    margin: 0px 10px;
+}
+ 
+.alert-success {
+    border-color: #2ed573;
+    background: #c3f3d7;
+    color: #23ad5c;
+}
+
+.alert-danger {
+    border-color: #ff4757;
+    background: #ffe0e3;
+    color: #ff4757;
+}
+
+.alert-warning {
+    border-color: #ffa502;
+    background: #ffdb9b;
+    color: #ce8500;
+}
+
+.alert-info {
+    border-color: #008bdf;
+    background: #d7f0ff;
+    color: #008bdf;
+}
+
+.alert-dark {
+    border-color: #333;
+    background: #4d4d4d;
+    color: #cccccc;
+}
+
+.alert-icon {
+    float: left;
+    font-size: 20px;
+    margin-right: 10px;
+    line-height: 1.15;
+}

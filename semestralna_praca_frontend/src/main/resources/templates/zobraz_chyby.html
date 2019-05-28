@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+
+    <script th:src="@{/js/jquery-1.4.2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/tablefilter.js}"></script>
+
+    <script th:src="@{/js/ajax.js}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#tabulkaBug").tableFilter();
+            $("#filter_5").remove();
+        });
+    </script>
+
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Aktuálny zoznam chýb</h2>
+
+    <div th:if="${ziskaneData} != null">
+        <table id="tabulkaBug">
+            <thead>
+            <tr>
+                <th>ID chyby</th>
+                <th>Názov chyby</th>
+                <th>Autor</th>
+                <th filter-type="ddl">Je aktívna?</th>
+                <th filter-type="ddl">Dôležitosť</th>
+                <th>Akcie</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="polozka : ${ziskaneData}">
+                <tr>
+                    <td th:text="${polozka.chybaID}"></td>
+                    <td th:text="${polozka.nazovChyby}"></td>
+                    <td th:text="${polozka.autor}"></td>
+                    <td th:text="${polozka.datumUkoncenia == null} ? 'áno' : 'nie'"></td>
+                    <td><div th:text="${polozka.dolezitostObjekt.popis}" class="dolezitost" th:style="${'background-color: ' + polozka.dolezitostObjekt.farba}"></div></td>
+                    <td>
+                        <form method="get" action="#" class="formInline">
+                            <input type="hidden" name="chybaID" th:value="${polozka.chybaID}">
+                            <input type="submit" value="Editovať chybu" class="btn btn-success" th:formaction="@{'/editujChybu/' + ${polozka.chybaID}}">
+                            <input type="submit" value="Zobraziť podrobnosti" class="btn btn-success" th:formaction="@{'/podrobnosti/' + ${polozka.chybaID}}">
+                        </form>
+
+                        <input type="button" th:if="${session.nick == polozka.autor}" value="Vymazať chybu" class="vymazatChybu btn btn-danger" th:data-chybaid="${polozka.chybaID}">
+                        <span th:if="${polozka.datumUkoncenia != null}">
+                            <input type="button" value="Označiť ako nevyriešenú" class="nevyriesenaChybaTlacidlo btn btn-primary" th:data-chybaid="${polozka.chybaID}">
+                        </span>
+                        <span th:if="${polozka.datumUkoncenia == null}">
+                            <input type="button" value="Označiť ako vyriešenú" class="vyriesenaChybaTlacidlo btn btn-primary" th:data-chybaid="${polozka.chybaID}">
+                        </span>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <a th:href="@{/pridajChybu}" class="btn btn-primary hornyMargin">Pridaj novú chybu</a>
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

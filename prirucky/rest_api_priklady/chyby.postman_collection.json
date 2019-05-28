@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "cccf52a5-97ab-433a-867a-05562bbc3ed9",
+		"name": "chyby",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "zoznam chýb",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"zoznamChyb"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "nejaká chyba existuje",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"zoznamChyb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "308"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:43:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"chybaID\": 10,\n            \"nazovChyby\": \"nová chyba\",\n            \"popisChyby\": \"nová chyba a jej popis\",\n            \"autor\": \"jarosd\",\n            \"datumVytvorenia\": \"28.05.2019 15:43:19\",\n            \"datumUkoncenia\": null,\n            \"dolezitostObjekt\": {\n                \"dolezitost\": 7,\n                \"popis\": \"Poznámka\",\n                \"farba\": \"#2AB9FB\"\n            },\n            \"umiestnenie\": \"doma\"\n        }\n    ],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				},
+				{
+					"name": "prázdny zoznam chýb",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"zoznamChyb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:32:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "zoznam chýb pre zadanú dôležitosť",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb/dolezitost/1",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"zoznamChyb",
+						"dolezitost",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "prázdna odpoveď",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb/dolezitost/1",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"zoznamChyb",
+								"dolezitost",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:58:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "daj jednu chybu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/getChyba/16",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"getChyba",
+						"16"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "informácie o jednej chybe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/getChyba/11",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"getChyba",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "300"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 14:01:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"chybaID\": 11,\n        \"nazovChyby\": \"nová chyba\",\n        \"popisChyby\": \"popis novej chyby\",\n        \"autor\": \"jarosd\",\n        \"datumVytvorenia\": \"28.05.2019 15:49:23\",\n        \"datumUkoncenia\": null,\n        \"dolezitostObjekt\": {\n            \"dolezitost\": 7,\n            \"popis\": \"Poznámka\",\n            \"farba\": \"#2AB9FB\"\n        },\n        \"umiestnenie\": \"doma\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "zoznam chýb autora",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/zoznamChyb/autor/jarosd",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"zoznamChyb",
+						"autor",
+						"jarosd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "úprava informácií o chybe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nazovChyby\": \"nový názov\",\n    \"popisChyby\": \"dnes nie je pekne\",\n    \"autor\": \"jarosd\",\n    \"dolezitost\": 2,\n    \"umiestnenie\": \"fadfs0\",\n    \"chybaID\": 11\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/modifikujChybu",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"modifikujChybu"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "úprava informácií o chybe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nazovChyby\": \"chyba\",\n    \"popisChyby\": \"dnes nie je pekne\",\n    \"autor\": \"jarosd\",\n    \"dolezitostObjekt\": 2,\n    \"umiestnenie\": \"fadfs0\",\n    \"chybaID\": 10\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/modifikujChybu",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"modifikujChybu"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:45:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Chyba bola úspešne zaktualizovaná.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "pridanie chyby",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nazovChyby\": \"nová chyba\",\n\t\"popisChyby\": \"popis novej chyby\",\n\t\"autor\": \"jarosd\",\n\t\"dolezitostObjekt\": 7,\n\t\"umiestnenie\": \"doma\"\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/pridajChybu",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"pridajChybu"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "úspech",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nazovChyby\": \"nová chyba\",\n\t\"popisChyby\": \"nová chyba a jej popis\",\n\t\"autor\": \"jarosd\",\n\t\"dolezitostObjekt\": 7,\n\t\"umiestnenie\": \"doma\"\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/pridajChybu",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"pridajChybu"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:43:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Chyba bola úspešne uložená do databázy.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "označenie chyby za vyriešenú",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cisloChyby\": 2\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/oznacChybuVyriesena",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"oznacChybuVyriesena"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vymazanie chyby",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cisloChyby\": 2\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/chyby/vymazChybu",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"chyby",
+						"vymazChybu"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "neúspešné vymazanie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"cisloChyby\": 10\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/chyby/vymazChybu",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"chyby",
+								"vymazChybu"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:46:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Nepodarilo sa odstrániť chybu z databázy.\"\n    },\n    \"status\": \"CHYBA\",\n    \"httpKod\": 500,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		}
+	]
+}

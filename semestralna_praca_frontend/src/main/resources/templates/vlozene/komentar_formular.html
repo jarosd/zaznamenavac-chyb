@@ -1,0 +1,7 @@
+<form method="post" th:action="@{/aktualizujKomentar}" th:if="${komentar != null}">
+    <input type="hidden" name="idChyby" th:value="${komentar.idChyby}">
+    <input type="hidden" name="idKomentara" th:value="${komentar.idKomentara}">
+    <textarea name="textKomentara" rows="10" cols="50" placeholder="Zadajte text komentára..." th:text="${komentar.textKomentara}"></textarea><br>
+
+    <input type="submit" value="Editovať komentár" class="btn btn-success">
+</form>

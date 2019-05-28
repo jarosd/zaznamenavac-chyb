@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+
+    <script th:src="@{/js/ajax.js}"></script>
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Podrobnosti o chybe</h2>
+
+    <div th:if="${ziskaneData != null}">
+        <strong>Názov chyby: </strong><span th:text="${ziskaneData.nazovChyby}"></span><br>
+        <strong>Autor: </strong><span th:text="${ziskaneData.autor}"></span><br>
+        <strong>Dátum vytvorenia: </strong><span th:text="${ziskaneData.datumVytvorenia}"></span><br>
+        <strong>Dátum ukončenia: </strong><span th:text="${ziskaneData.datumUkoncenia != null ? ziskaneData.datumUkoncenia : 'ešte neukončené'}"></span><br>
+
+        <div>
+            <strong>Popis chyby: </strong>
+            <p th:text="${ziskaneData.popisChyby}"></p>
+        </div>
+    </div>
+
+    <h3>Priložené obrázky</h3>
+
+    <div th:if="${ziskaneDataObrazok != null && ziskaneDataObrazok.size() > 0}" class="prilozeneObrazky">
+        <th:block th:each="obrazok : ${ziskaneDataObrazok}">
+            <figure>
+                <a th:href="${obrazok.link}" target="_blank"><img th:src="${obrazok.link}" th:alt="${obrazok.nazovObrazka}" class="obrazokChyba"></a>
+                <figcaption th:text="${obrazok.nazovObrazka + ' (vytvoril ' + obrazok.autor + ')'}"></figcaption>
+            </figure>
+        </th:block>
+    </div>
+
+    <div th:if="${ziskaneDataObrazok == null || ziskaneDataObrazok.size() == 0}">
+        <p>Nenašli sa žiadne obrázky.</p>
+    </div>
+
+    <div class="komentare">
+        <h3>Komentáre ku chybe</h3>
+
+        <div th:if="${ziskaneDataKomentare != null && ziskaneDataKomentare.size() > 0}">
+            <th:block th:each="komentar : ${ziskaneDataKomentare}">
+                <div class="komentarJeden">
+                    <div class="komentarMeta">
+                        <strong th:text="${komentar.autor + ', ' + komentar.casVlozenia}"></strong>
+                    </div>
+                    <p class="komentarText" th:text="${komentar.textKomentara}"></p>
+                    <div class="komentarAkcie" th:if="${komentar.autor == session.nick}">
+                        <input type="button" value="Editovať komentár" class="editujKomentar btn btn-primary" th:data-komentar="${komentar.idKomentara}">
+                        <input type="button" value="Vymazať komentár" class="vymazatKomentar btn btn-danger" th:data-komentar="${komentar.idKomentara}">
+                    </div>
+
+                    <div id="komentarModifikacia"></div>
+                </div>
+            </th:block>
+
+
+        </div>
+
+        <div th:if="${ziskaneDataKomentare == null || ziskaneDataKomentare.size() == 0}">
+            <p>Nie sú zadané žiadne komentáre pre túto chybu.</p>
+        </div>
+    </div>
+
+    <div id="komentarPridaj" th:if="${ziskaneData != null}">
+        <h2>Pridanie nového komentára</h2>
+
+        <form method="post" th:action="@{/pridajKomentar}">
+            <input type="hidden" name="idChyby" th:value="${ziskaneData.chybaID}">
+            <textarea name="textKomentara" rows="8" cols="75" placeholder="Zadajte text komentára..."></textarea><br>
+
+            <input type="submit" value="Pridať nový komentár" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

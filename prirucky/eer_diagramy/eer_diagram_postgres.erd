@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="docker_vpa_pouzivatelia.erd" time="201905241220">
+	<entities>
+		<data-source id="postgres-jdbc-16ae9546649-66ea86f04d9b9db6">
+			<entity id="1" name="autorizacne_kluce" fq-name="public.autorizacne_kluce" order="0" x="301" y="48">
+				<path name="public"/>
+				<path name="vpa_jarosd"/>
+			</entity>
+			<entity id="2" name="pouzivatelia" fq-name="public.pouzivatelia" order="1" x="13" y="21">
+				<path name="public"/>
+				<path name="vpa_jarosd"/>
+			</entity>
+			<entity id="3" name="typ_pouzivatela" fq-name="public.typ_pouzivatela" order="2" x="165" y="57">
+				<path name="public"/>
+				<path name="vpa_jarosd"/>
+			</entity>
+			<entity id="4" name="pouzivatelia_id_pouzivatelia_seq" fq-name="public.pouzivatelia_id_pouzivatelia_seq" order="3" x="9" y="237">
+				<path name="public"/>
+				<path name="vpa_jarosd"/>
+			</entity>
+			<entity id="5" name="typ_pouzivatela_id_typu_seq" fq-name="public.typ_pouzivatela_id_typu_seq" order="4" x="223" y="237">
+				<path name="public"/>
+				<path name="vpa_jarosd"/>
+			</entity>
+		</data-source>
+	</entities>
+	<notes/>
+	<relations>
+		<relation name="fk_typ_pouzivatela" fq-name="public.pouzivatelia.fk_typ_pouzivatela" type="fk" pk-ref="3" fk-ref="2"/>
+	</relations>
+</diagram>

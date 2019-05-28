@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nahlasovač chýb</title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-buttons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" type="text/css">
+</head>
+<body>
+
+<header th:replace="vlozene/hlavicka"></header>
+
+<div id="teloStranky">
+    <h2>Prihlásenie</h2>
+
+    <div class="mainform">
+        <form method="post" th:action="@{/vykonajPrihlasenie}">
+            <input type="text" name="nick" placeholder="Prihlasovacie meno"><br>
+            <input type="password" placeholder="Vaše heslo" name="heslo"><br>
+            <input type="submit" value="Prihlásiť sa" class="btn btn-success">
+        </form>
+    </div>
+</div>
+
+<footer th:replace="vlozene/pata"></footer>
+
+</body>
+</html>

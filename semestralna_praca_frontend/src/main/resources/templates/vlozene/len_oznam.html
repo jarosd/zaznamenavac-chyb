@@ -1,0 +1,14 @@
+<th:block th:if="${sprava != null}">
+    <th:block th:if="${typ != null}">
+        <th:block th:switch="${typ}">
+            <div th:case="výstraha" th:text="${sprava}" id="status" class="alert alert-warning"></div>
+            <div th:case="chyba" th:text="${sprava}" id="status" class="alert alert-danger"></div>
+            <div th:case="OK" th:text="${sprava}" id="status" class="alert alert-success"></div>
+            <div th:case="informácia" th:text="${sprava}" id="status" class="alert alert-info"></div>
+        </th:block>
+    </th:block>
+
+    <th:block th:if="${typ == null}">
+        <div th:text="${sprava}" id="status" class="alert alert-info"></div>
+    </th:block>
+</th:block>

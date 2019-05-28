@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "d8da779a-f5e9-45be-bfaf-ee1f678dee94",
+		"name": "komentáre",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "komentáre k chybe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/komentar/getKomentare/11",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"komentar",
+						"getKomentare",
+						"11"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "komentáre k chybe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/komentar/getKomentare/11",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"komentar",
+								"getKomentare",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "167"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:52:08 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"idKomentara\": 16,\n            \"idChyby\": 11,\n            \"autor\": \"jarosd\",\n            \"textKomentara\": \"komentár1\",\n            \"casVlozenia\": \"28.05.2019 15:50:45\"\n        }\n    ],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "jeden komentár",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/komentar/getKomentar/11",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"komentar",
+						"getKomentar",
+						"11"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "komentár neexistuje",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/komentar/getKomentar/11",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"komentar",
+								"getKomentar",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:53:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "pridanie komentára",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"autor\": \"jarosd\", \n\t\"textKomentara\": \"komentár1\",\n\t\"idChyby\": 11\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/komentar/pridajKomentar",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"komentar",
+						"pridajKomentar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "úspech pri pridaní komentára",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"autor\": \"jarosd\", \n\t\"textKomentara\": \"komentár1\",\n\t\"idChyby\": 11\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/komentar/pridajKomentar",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"komentar",
+								"pridajKomentar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "111"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:50:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Komentár bol úspešné pridaný k danej chybe.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "aktualizácia komentára",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"autor\": \"jarosd\", \n\t\"textKomentara\": \"komentárX1\",\n\t\"idChyby\": 11,\n\t\"idKomentara\": 16\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/komentar/aktualizujKomentar",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"komentar",
+						"aktualizujKomentar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "aktualizácia komentára",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"autor\": \"jarosd\", \n\t\"textKomentara\": \"komentárX1\",\n\t\"idChyby\": 11,\n\t\"idKomentara\": 16\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/komentar/aktualizujKomentar",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"komentar",
+								"aktualizujKomentar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:54:01 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Komentár bol úspešné zaktualizovaný.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "vymazanie komentára",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idKomentara\": 16\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/komentar/vymazKomentar",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"komentar",
+						"vymazKomentar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "úspešné vymazanie komentára",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idKomentara\": 16\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/komentar/vymazKomentar",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"komentar",
+								"vymazKomentar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:56:09 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Komentár bol vymazaný.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		}
+	]
+}

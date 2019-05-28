@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "cd5a1d47-31d5-49b2-bcc8-137be0034664",
+		"name": "obrázky a iné",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "zoznam dôležitostí",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/doplnky/getDolezitosti",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"doplnky",
+						"getDolezitosti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "zmeny na chybách pre konkrétneho používateľa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/doplnky/getZmeny/jarosd",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"doplnky",
+						"getZmeny",
+						"jarosd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "zmeny používateľa jarosd",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/doplnky/getZmeny/jarosd",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"doplnky",
+								"getZmeny",
+								"jarosd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "834"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 13:54:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"bugId\": 11,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"UPDATE\",\n            \"typAkcie\": \"komentár\",\n            \"casVykonania\": \"28.05.2019 15:54:01\"\n        },\n        {\n            \"bugId\": 11,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"INSERT\",\n            \"typAkcie\": \"komentár\",\n            \"casVykonania\": \"28.05.2019 15:50:45\"\n        },\n        {\n            \"bugId\": 11,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"INSERT\",\n            \"typAkcie\": \"chyba\",\n            \"casVykonania\": \"28.05.2019 15:49:23\"\n        },\n        {\n            \"bugId\": 0,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"DELETE\",\n            \"typAkcie\": \"chyba\",\n            \"casVykonania\": \"28.05.2019 15:46:14\"\n        },\n        {\n            \"bugId\": 0,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"UPDATE\",\n            \"typAkcie\": \"chyba\",\n            \"casVykonania\": \"28.05.2019 15:45:50\"\n        },\n        {\n            \"bugId\": 0,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"UPDATE\",\n            \"typAkcie\": \"chyba\",\n            \"casVykonania\": \"28.05.2019 15:44:35\"\n        },\n        {\n            \"bugId\": 0,\n            \"pouzivatel\": \"jarosd\",\n            \"typZmeny\": \"INSERT\",\n            \"typAkcie\": \"chyba\",\n            \"casVykonania\": \"28.05.2019 15:43:19\"\n        }\n    ],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "daj obrázok (súbor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/getObrazokZobraz/5",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"getObrazokZobraz",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obrázky ku chybe (databáza)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/getObrazky/11",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"getObrazky",
+						"11"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "obrázky ku chybe (parameter = ID chyby)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/obrazky/getObrazky/11",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"obrazky",
+								"getObrazky",
+								"11"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "189"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 14:17:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"obrazokId\": 5,\n            \"chybaId\": 11,\n            \"nazovObrazka\": \"Schéma systému\",\n            \"autor\": \"jarosd\",\n            \"cestaObrazok\": \"jarosd_1559052881942_prvky_systemu.png\"\n        }\n    ],\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "nahratie obrázka (databáza)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"chybaId\": 11,\n\t\"nazovObrazka\": \"Schéma systému\",\n\t\"autor\": \"jarosd\",\n\t\"cestaObrazok\": \"jarosd_1559052881942_prvky_systemu.png\"\n}\n"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/pridajObrazok",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"pridajObrazok"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "uloženie metadát o obrázku",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"chybaId\": 11,\n\t\"nazovObrazka\": \"Schéma systému\",\n\t\"autor\": \"jarosd\",\n\t\"cestaObrazok\": \"jarosd_1559052881942_prvky_systemu.png\"\n}\n"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/obrazky/pridajObrazok",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"obrazky",
+								"pridajObrazok"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 14:16:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Obrázok bol úspešne zaznamenaný do internej databázy.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "nahratie obrázka (súbor)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subor",
+							"contentType": "image/jpeg",
+							"type": "file",
+							"src": "/C:/Users/Daniel/Desktop/prvky_systemu.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/nahrajObrazok/jarosd",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"nahrajObrazok",
+						"jarosd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "úspešné nahratie obrázka",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subor",
+									"contentType": "image/jpeg",
+									"type": "file",
+									"src": [
+										"/C:/Users/Daniel/Desktop/prvky_systemu.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/obrazky/nahrajObrazok/jarosd",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"obrazky",
+								"nahrajObrazok",
+								"jarosd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 14:14:41 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"nazovSuboru\": \"jarosd_1559052881942_prvky_systemu.png\",\n        \"status\": \"Obrázok bol úspešne načítaný na server.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 200,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "vymazanie obrázka (databáza)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idObrazka\": 5\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/vymazObrazok",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"vymazObrazok"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "vymazanie obrázka (databáza) - úspech",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idObrazka\": 5\n}"
+						},
+						"url": {
+							"raw": "http://40.114.227.18:10003/api/v1/obrazky/vymazObrazok",
+							"protocol": "http",
+							"host": [
+								"40",
+								"114",
+								"227",
+								"18"
+							],
+							"port": "10003",
+							"path": [
+								"api",
+								"v1",
+								"obrazky",
+								"vymazObrazok"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2019 14:21:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"status\": \"Informácia o obrázku ku chybe bola z databázy odstránená.\"\n    },\n    \"status\": \"OK\",\n    \"httpKod\": 0,\n    \"apiVersion\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "vymazanie obrázka (súbor)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idObrazka\": 5\n}"
+				},
+				"url": {
+					"raw": "http://40.114.227.18:10003/api/v1/obrazky/vymazObrazokZobraz",
+					"protocol": "http",
+					"host": [
+						"40",
+						"114",
+						"227",
+						"18"
+					],
+					"port": "10003",
+					"path": [
+						"api",
+						"v1",
+						"obrazky",
+						"vymazObrazokZobraz"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
