@@ -1,6 +1,6 @@
 ## Systémová príručka ##
 
-Ak chcete túto aplikáciu inštalovať na vlastný stroj, tak je to trochu komplikovanejšie. V skratke sa tu budem snažiť priblížiť, akým spôsobom je to možné. Je vhodné si pozrieť základné návody pre prácu s Dockerom pred vytváraním vlastného stroja s aplikáciou. Predpokladá sa použitie Intellij IDE.
+Ak chcete túto aplikáciu inštalovať na vlastný stroj, tak je to trochu komplikovanejšie. V skratke sa tu budem snažiť priblížiť, akým spôsobom je to možné. Je vhodné si pozrieť základné návody pre prácu s Dockerom pred vytváraním vlastného stroja s aplikáciou. Predpokladá sa použitie IDE Intellij IDEA.
 
 Aplikácia využíva pre jednotlivé moduly Docker. Tieto moduly som ukladal na vzdialený server (v mojom prípade Azure). K nim sa následne aplikácia s front-endom pripája a len stiahne si z nich REST odpovede.
 
