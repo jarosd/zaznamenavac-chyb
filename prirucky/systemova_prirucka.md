@@ -8,7 +8,7 @@ Schematicky je možné túto situáciu vyjadriť nasledujúcim obrázkom:
 
 ![prvky_systemu](prvky_systemu/prvky_systemu.png)
 
-Boli vytvorené dva samostané kontajnery, jeden pre prihlasovanie, v ktorom ako úložisko údajov využívam RDBMS PostgresSQL a pre uchovávanie informácií o chybách slúži ďalší kontajner. Tam som použil RDBMS Oracle.
+Boli vytvorené dva samostané kontajnery, jeden pre prihlasovanie, v ktorom ako úložisko údajov využívam RDBMS PostgresSQL a pre uchovávanie informácií o chybách slúži ďalší kontajner. Tam som použil RDBMS MySQL.
 
 Pri Spring Boot bola použitá verzia Javy 11.
 
