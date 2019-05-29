@@ -1,14 +1,14 @@
 ## Systémová príručka ##
 
-Ak chcete túto aplikáciu inštalovať na vlastný stroj, tak je to trochu komplikovanejšie. V skratke sa tu budem snažiť priblížiť, akým spôsobom je to možné. Je vhodné si pozrieť základné návody pre prácu s Dockerom pred vytváraním vlastného stroja s aplikáciou. Predpokladá sa použitie Intellij IDE.
+Ak chcete túto aplikáciu inštalovať na vlastný stroj, tak je to trochu komplikovanejšie. V skratke sa tu budem snažiť priblížiť, akým spôsobom je to možné. Je vhodné si pozrieť základné návody pre prácu s Dockerom pred vytváraním vlastného stroja s aplikáciou. Predpokladá sa použitie IDE Intellij IDEA.
 
 Aplikácia využíva pre jednotlivé moduly Docker. Tieto moduly som ukladal na vzdialený server (v mojom prípade Azure). K nim sa následne aplikácia s front-endom pripája a len stiahne si z nich REST odpovede.
 
 Schematicky je možné túto situáciu vyjadriť nasledujúcim obrázkom:
 
-![prvky_systemu](prvky_systemu\prvky_systemu.png)
+![prvky_systemu](prvky_systemu/prvky_systemu.png)
 
-Boli vytvorené dva samostané kontajnery, jeden pre prihlasovanie, v ktorom ako úložisko údajov využívam RDBMS PostgresSQL a pre uchovávanie informácií o chybách slúži ďalší kontajner. Tam som použil RDBMS Oracle.
+Boli vytvorené dva samostané kontajnery, jeden pre prihlasovanie, v ktorom ako úložisko údajov využívam RDBMS PostgresSQL a pre uchovávanie informácií o chybách slúži ďalší kontajner. Tam som použil RDBMS MySQL.
 
 Pri Spring Boot bola použitá verzia Javy 11.
 
@@ -22,7 +22,7 @@ Pri Spring Boot bola použitá verzia Javy 11.
 6. Sprístupnite vzdialenú komunikáciu v programe Docker - návod možno nájsť tu https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd 
 7. Nastavte výnimky pre firewall v nastaveniach Azure (pre porty 2375, 2376)
 
-![microsoft_azure](screenshoty\microsoft_azure.png)
+![microsoft_azure](screenshoty/microsoft_azure.png)
 
 7. V IntelliJ projektoch je zapísaná konfigurácia jednotlivých kontajnerov v DockerFiles. 
 8. Nezabudnite povoliť komunikáciu na portoch, ktoré sú ako vonkajšie pre jednotlivé aplikácie (napríklad pre prihlasovanie sa mi port pre pripojenie sa k databázy prekladá z 2375 na 10001)
@@ -67,11 +67,11 @@ V prípade, že databázy neexistujú, tak pomocou súboru <code>files_docker/vy
 
 ### PostgreSQL  - sekcia prihlasovanie
 
-![eer_diagram_postgres](eer_diagramy\eer_diagram_postgres.png)
+![eer_diagram_postgres](eer_diagramy/eer_diagram_postgres.png)
 
 ### MySQL - sekcia s chybami ###
 
-![eer_diagram_mysql](eer_diagramy\eer_diagram_mysql.png)
+![eer_diagram_mysql](eer_diagramy/eer_diagram_mysql.png)
 
 V prípade akýchkoľvek problémov s konfiguráciou ma kontaktujte prostredníctvom emailu jaros.daniel(at)gmail.com.
 
